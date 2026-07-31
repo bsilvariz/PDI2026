@@ -116,3 +116,26 @@ end
 figure('Name', 'Posterizacao em 3 Niveis');
 imshow(imPosterizada);
 
+% DESAFIO
+
+imPtzd = imOrig;
+[a, b] = size(imPtzd);
+
+n = input('Digite o número de níveis: ');
+
+passo = 256.0 / n;
+
+fatorEscala = 255.0 / (n - 1);
+
+for i = 1:a
+    for j = 1:b
+
+        val = imOrig(i,j);
+        grupo = val / passo;
+        imPtzd(i,j) = grupo * fatorEscala;
+        
+    end
+end
+
+figure('Name', 'Resultado do Desafio');
+imshow(imPtzd);
